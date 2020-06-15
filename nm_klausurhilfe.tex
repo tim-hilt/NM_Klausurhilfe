@@ -4,16 +4,62 @@
 \usepackage{mathtools}
 \usepackage[margin=2.5cm]{geometry}
 
+
 \title{Formelsammlung---Numerische Methoden}
 \author{Tim Hilt \and Emil Slomka}
 \date{\today}
 
 \begin{document}
-    
+
 \maketitle
 \tableofcontents
 
 \section{Lineare Gleichungssysteme}
+
+Die unten beschriebenen Verfahren suchen Lösungen für die $x$-Werte. 
+
+\subsection{Jacobi-Iteration}
+
+\subsubsection{Jacobi-Iteration in Matrix-Vektor-Notation}
+
+$\mathbf{L}$: Lower part of Matrix
+
+$\mathbf{D}$: Extracted Diagonal
+
+$\mathbf{U}$: Upper part of Matrix
+
+\[\mathbf{x}^{(k+1)} = -\mathbf{D}^{-1} (\mathbf{L} + \mathbf{U})\mathbf{x}^{(k)} + \mathbf{D}^{-1}\mathbf{b}\]
+
+\textbf{Achtung}: Wenn bei der Jacobi-Iteration alle Startwerte $=0$ sind muss \textbf{Nur der zweite Term} $\mathbf{D}^{-1}\mathbf{b}$ betrachtet werden!!!
+
+\subsubsection{Vorgehen}
+
+\begin{enumerate}
+\item Stelle einzelne Gleichungen auf
+\item Auflösen nach den Variablen der jeweiligen Zeile
+\item Links steht jetzt die Variable der nächsten Iteration, rechts stehen die vorhergehenden Werte.
+\item Gleichungen ausrechnen
+\end{enumerate}
+
+\subsection{Konvergenz}
+
+Die untenstehenden Kriterien stellen das Konvergenzkriterium für beide Iterationsverfahren dar. Es gilt sowohl für das Jacobi- als auch für das Gauss-Seidel-Verfahren und für beliebige Startwerte.
+
+\subsubsection{Diagonaldominanz}
+
+Eine Matrix ist dann diagonaldominant, wenn in allen Zeilen der Betrag des Diagonalelements der Matrix größer ist als die Summe des Betrages der restlichen Elemente.
+
+\[\sum_{j \neq k} |a_{ij}| < |a_{kk}| \ \text{für}\ k = 1, \ldots , n.\]
+
+\subsubsection{Spektralradius}
+
+\[\rho(\mathbf{A}) = \max_{j=1,\ldots,n} |\lambda_{j}| = \max(|-\mathbf{D}^{-1}(\mathbf{L} + \mathbf{U})|)\]
+
+\(\Rightarrow\) Die Iteration konvergiert, wenn \(|\rho(\mathbf{A})| < 1\)
+
+\(\Rightarrow\) Je kleiner der Spektralradius, desto schneller die Konvergenz
+
+\subsection{Gauss-Seidel-Iteration}
 
 \section{Nicht-lineare Gleichungssysteme}
 
