@@ -147,14 +147,26 @@ Das Hermite-Tableau stellt eine Generalisierung der Newton-Tableaus dar, mithilf
 
 \subsection{Eulerverfahren}
 
-\subsection{Optimale Schrittweite}
 
 \subsection{Fehlerabschätzung / Toleranz}
 
 \subsubsection{Lokaler Fehler}
 
-Dummy
+Benötigt:
+
+\begin{itemize}
+\item \(\tilde{x}^{(k+1)}\): Näherungswert nach einem Iterationsschritt mit Schrittweite \(h\)
+\item \(\tilde{y}^{(k+1)}\): Näherungswert nach \textbf{zwei} Iterationsschritten mit Schrittweite \(h/2\)
+\end{itemize}
+
+\[e_{\text{lokal}} = |\tilde{x}^{(k+1)} - \tilde{y}^{(k+1)}|\]
 
 \subsubsection{Globaler Fehler}
+
+\[e_{\text{global}} = \frac{|\tilde{x}^{(k+1)} - \tilde{y}^{(k+1)}|}{h}\]
+
+\subsection{Optimale Schrittweite}
+
+\[h_{\text{opt}} = \frac{\operatorname{tol} \cdot h}{|\tilde{x}^{(k+1)} - \tilde{y}^{(k+1)}|} \cdot h\]
 
 \end{document}
