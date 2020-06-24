@@ -4,6 +4,7 @@
 \usepackage{mathtools}
 \usepackage[margin=2.5cm]{geometry}
 
+\setlength{\parindent}{0pt}
 
 \title{Formelsammlung---Numerische Methoden}
 \author{Tim Hilt \and Emil Slomka}
@@ -22,11 +23,11 @@ Die unten beschriebenen Verfahren suchen Lösungen für die $x$-Werte.
 
 \subsubsection{Jacobi-Iteration in Matrix-Vektor-Notation}
 
-$\mathbf{L}$: Lower part of Matrix
+$\mathbf{L}$: Unterer Teil der Matrix
 
-$\mathbf{D}$: Extracted Diagonal
+$\mathbf{D}$: Diagonale der Matrix
 
-$\mathbf{U}$: Upper part of Matrix
+$\mathbf{U}$: Oberer Teil der Matrix
 
 \[\mathbf{x}^{(k+1)} = -\mathbf{D}^{-1} (\mathbf{L} + \mathbf{U})\mathbf{x}^{(k)} + \mathbf{D}^{-1}\mathbf{b}\]
 
@@ -41,13 +42,19 @@ $\mathbf{U}$: Upper part of Matrix
 \item Gleichungen ausrechnen
 \end{enumerate}
 
+\subsection{Gauss-Seidel-Iteration}
+
+Die Gauss-Seidel-Iteration funktioniert genauso wie die Jacobi-Iteration, mit dem Unterschied, dass neu berechnete Werte direkt weiterverwendet werden.
+
 \subsection{Konvergenz}
 
-Die untenstehenden Kriterien stellen das Konvergenzkriterium für beide Iterationsverfahren dar. Es gilt sowohl für das Jacobi- als auch für das Gauss-Seidel-Verfahren und für beliebige Startwerte.
+Die untenstehenden Kriterien stellen das Konvergenzkriterium für beide Iterationsverfahren (Jacobi genauso wie Gauss-Seidel) dar. Es gilt sowohl für das Jacobi- als auch für das Gauss-Seidel-Verfahren und für beliebige Startwerte.
 
 \subsubsection{Diagonaldominanz}
 
 Eine Matrix ist dann diagonaldominant, wenn in allen Zeilen der Betrag des Diagonalelements der Matrix größer ist als die Summe des Betrages der restlichen Elemente.
+
+Wenn die Matrix \(A\) diagonaldominant ist ist eine Konvergenz der Iterationsverfahren garantiert. Ist sie nicht diagonaldominant, so ist die Konvergenz nicht garantiert (jedoch trotzdem nicht ausgeschlossen).
 
 \[\sum_{j \neq k} |a_{ij}| < |a_{kk}| \ \text{für}\ k = 1, \ldots , n.\]
 
@@ -59,9 +66,48 @@ Eine Matrix ist dann diagonaldominant, wenn in allen Zeilen der Betrag des Diago
 
 \(\Rightarrow\) Je kleiner der Spektralradius, desto schneller die Konvergenz
 
-\subsection{Gauss-Seidel-Iteration}
 
 \section{Nicht-lineare Gleichungssysteme}
+
+\subsection{Fixpunktiteration}
+
+Gegeben ist ein nichtlineares Gleichungssystem (NGS), dessen Nullstellen es zu bestimmen gilt. Das gegebene NGS hat in unserem Fall nur eine einzelne Variable. Zur Berechnung der Nullstellen der Funktion \(f\) müssen wir die Funktion:
+
+\begin{enumerate}
+\item \(=0\) setzen
+\item Nach \(x\) auflösen (auf der anderen Seite steht dann die Iterationsfunktion \(g(x)\))
+\item Gegeben ist ein Startwert \(x^{(0)}\), der in \(g(x)\) eingesetzt wird um \(x^{(k+1)}\) zu berechnen
+\end{enumerate}
+
+Konvergiert die Fixpunktfunktion \(g\) gegen einen Fixpunkt \(x^{\star}\), dann ist dieser Fixpunkt eine Nullstelle von \(f\).
+
+\subsection{Eigenschaften von Iterationsfunktionen}
+
+\subsection{Konvergenz}
+
+\subsubsection{Alternierende Konvergenz}
+
+Wenn bei einer konvergenten Zahlenfolge der nachfolgende Wert \(x^{(k+1)}\) zwischen den beiden Vorgängerwerten \(x^{(k-1)}\) und \(x^{(k)}\) liegt, d.h.
+
+\[x^{(k+1)} \leq x^{(k+1)} \leq x^{(k)},\quad k = 1, 2, \ldots\]
+
+oder
+
+\[x^{(k)} \leq x^{(k+1)} \leq x^{(k-1)},\quad k = 1, 2, \ldots\]
+
+dann bezeichnet man die Konvergenz als \textbf{alternierend}.
+
+\subsubsection{Monotone Konvergenz}
+
+Bei einer konvergenten Zahlenfolge spricht man von \textbf{monoton fallender Konvergenz},
+wenn die nachfolgenden Werte stets kleiner sind als die Vorgängerwerte
+
+\[x^{(k+1)} \leq x^{(k)},\quad k = 1, 2, \ldots\]
+
+und von \textbf{monoton wachsender Konvergenz}, wenn die nachfolgenden Werte stets
+größer sind als die Vorgängerwerte
+
+\[x^{(k+1)} \geq x^{(k)},\quad k = 1, 2, \ldots\]
 
 \section{Interpolation und Approximation}
 
@@ -70,5 +116,7 @@ Eine Matrix ist dann diagonaldominant, wenn in allen Zeilen der Betrag des Diago
 \section{Optimierung}
 
 \section{Gewöhnliche Differenzialgleichungen}
+
+
 
 \end{document}
