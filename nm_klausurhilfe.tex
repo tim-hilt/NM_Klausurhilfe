@@ -135,18 +135,31 @@ Das Hermite-Tableau stellt eine Generalisierung der Newton-Tableaus dar, mithilf
 
 \subsection{Trapezregel}
 
+\[h = \frac{b-a}{n}\]
+
+\[T(h) = h\left(\frac{1}{2}f(a) + f(a+h) + f(a+2h) + \ldots + f(a + (n-1)h) + \frac{1}{2}f(b)\right)\]
+
+\[T(h) = h \cdot \left( \frac{1}{2} \cdot (f(a) + f(b)) + \sum_{k=1}^{n-1} f(a + k \cdot h)\right)\]
+
 % \subsubsection{Summierte Trapezregel}
 
 \subsection{Romberg-Verfahren}
+
+\begin{align*}
+  T(4)_{1} &&\\
+  T(2)_{1} & \qquad\rightarrow T(2)_{2} = \frac{4}{3} \cdot T(2) - \frac{1}{3} \cdot T(4) &&\\
+  T(1)_{1} & \qquad\rightarrow T(1)_{2} = \frac{4}{3} \cdot T(1) - \frac{1}{3} \cdot T(2) & \rightarrow T(1)_{3} = \frac{16}{15} \cdot T(1)_{2} - \frac{1}{15} \cdot T(2)_{2}
+\end{align*}
 
 \section{Optimierung}
 
 \subsection{Gradientenverfahren}
 
+\[\mathbf{x}^{(k+1)} = \mathbf{x}^{k} - t^{(k)} \cdot \nabla f\left(\mathbf{x}^{(k)}\right)\]
+
 \section{Gewöhnliche Differenzialgleichungen}
 
 \subsection{Eulerverfahren}
-
 
 \subsection{Fehlerabschätzung / Toleranz}
 
@@ -168,5 +181,9 @@ Benötigt:
 \subsection{Optimale Schrittweite}
 
 \[h_{\text{opt}} = \frac{\operatorname{tol} \cdot h}{|\tilde{x}^{(k+1)} - \tilde{y}^{(k+1)}|} \cdot h\]
+
+\subsection{Schrittweitensteuerung}
+
+Falls \(e_{\text{global}} > \operatorname{tol}\) setze \(h = h/2\)
 
 \end{document}
