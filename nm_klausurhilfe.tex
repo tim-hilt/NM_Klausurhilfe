@@ -5,6 +5,7 @@
 \usepackage[margin=2.5cm]{geometry}
 
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
 
 \title{Formelsammlung---Numerische Methoden}
 \author{Tim Hilt \and Emil Slomka}
@@ -13,7 +14,6 @@
 \begin{document}
 
 \maketitle
-\tableofcontents
 
 \section{Lineare Gleichungssysteme}
 
@@ -161,9 +161,16 @@ Das Hermite-Tableau stellt eine Generalisierung der Newton-Tableaus dar, mithilf
 
 \subsection{Eulerverfahren}
 
-\subsection{Fehlerabschätzung / Toleranz}
+\[x'(t) = f(t, x(t)),\quad x(t_{0}) = x_{0},\quad t \in [t_{0}, t_{n}]\]
 
-\subsubsection{Lokaler Fehler}
+\begin{align*}
+  \tilde{x}_{k+1} &= \tilde{x}_{k} + h \cdot f(t_{k}, \tilde{x}_{k})\\[1em]
+  t_{k+1} &= t_{k} + h
+\end{align*}
+
+\subsubsection{Fehlerabschätzung / Toleranz}
+
+\paragraph{Lokaler Fehler}
 
 Benötigt:
 
@@ -174,16 +181,18 @@ Benötigt:
 
 \[e_{\text{lokal}} = |\tilde{x}^{(k+1)} - \tilde{y}^{(k+1)}|\]
 
-\subsubsection{Globaler Fehler}
+\paragraph{Globaler Fehler}
 
 \[e_{\text{global}} = \frac{|\tilde{x}^{(k+1)} - \tilde{y}^{(k+1)}|}{h}\]
 
-\subsection{Optimale Schrittweite}
+\subsubsection{Optimale Schrittweite}
 
 \[h_{\text{opt}} = \frac{\operatorname{tol} \cdot h}{|\tilde{x}^{(k+1)} - \tilde{y}^{(k+1)}|} \cdot h\]
 
-\subsection{Schrittweitensteuerung}
+\subsubsection{Schrittweitensteuerung}
 
 Falls \(e_{\text{global}} > \operatorname{tol}\) setze \(h = h/2\)
+
+Ansonsten berechne \(h_{\text{opt}}\) und setze \(h = h_{\text{opt}}\)
 
 \end{document}
