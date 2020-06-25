@@ -1,11 +1,13 @@
 \documentclass[a4paper, twoside]{article}
 
 \usepackage[ngerman]{babel}
-\usepackage{mathtools, csquotes}
+\usepackage{mathtools, csquotes, graphicx}
 \usepackage[margin=2.5cm]{geometry}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
+
+\graphicspath{{./Grafiken/}}
 
 \title{Formelsammlung---Numerische Methoden}
 \author{Tim Hilt \and Emil Slomka}
@@ -127,9 +129,21 @@ Bsp.: \enquote{Wie viele Iterationen benötigt man, um die Genauigkeit \(x\) zu 
 
 \subsection{Newton-Tableau}
 
+\clearpage
+
 \subsection{Hermite-Tableau}
 
 Das Hermite-Tableau stellt eine Generalisierung der Newton-Tableaus dar, mithilfe derer auch Eigenschaften der Ableitungen ins Interpolationspolynom aufgenommen werden können.
+
+\paragraph{Beispiel}
+
+Gegeben:
+
+{\centering\includegraphics[width=.5\textwidth]{hermite_geg}\par}
+
+Gesucht:
+
+{\centering\includegraphics[width=.9\textwidth]{hermite_ges}\par}
 
 \section{Numerische Integration}
 
