@@ -113,7 +113,9 @@ größer sind als die Vorgängerwerte
 
 \subsection{Konvergenz der Fixpunktiteration}
 
-\subsection{Lipschitz}
+\subsection{Lipschitzkonstante}
+
+\[L = \max_{x \in [a, b]} |g'(x)|\]
 
 \subsection{Fehlerabschätzung}
 
@@ -121,9 +123,15 @@ größer sind als die Vorgängerwerte
 
 Bsp.: \enquote{Wie viele Iterationen benötigt man, um die Genauigkeit \(x\) zu erreichen?}
 
-\enquote{Welche Genauigkeit erhält man nach \(k\) Iterationen?}
+\[\left|x^{\star} - x^{(k)}\right| < \frac{L^{k}}{1 -L} \left|x^{(1)} - x^{(0)}\right|\]
+
+Um die obenstehende Frage zu beantworten muss die linke Seite der Gleichung durch die gewünschte Genauigkeit ersetzt und nach \(k\) aufgelöst werden.
 
 \subsubsection{A posteriori}
+
+Bsp.: \enquote{Welche Genauigkeit erhält man nach \(k\) Iterationen?}
+
+\[\left|x^{\star} - x^{(k)}\right| < \frac{L}{1-L} \left|x^{(k)} - x^{(k-1)}\right|\]
 
 \section{Interpolation und Approximation}
 
