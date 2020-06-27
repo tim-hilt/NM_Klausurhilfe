@@ -1,7 +1,7 @@
 \documentclass[a4paper, twoside]{article}
 
 \usepackage[ngerman]{babel}
-\usepackage{mathtools, csquotes, graphicx}
+\usepackage{mathtools, csquotes, graphicx, pdfpages}
 \usepackage[margin=2.5cm]{geometry}
 
 \setlength{\parindent}{0pt}
@@ -216,5 +216,7 @@ Benötigt:
 Falls \(e_{\text{global}} > \operatorname{tol}\) setze \(h = h/2\)
 
 Ansonsten berechne \(h_{\text{opt}}\) und setze \(h = h_{\text{opt}}\)
+
+\includepdf[pages=-]{ableitungen}
 
 \end{document}
